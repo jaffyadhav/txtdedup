@@ -10,7 +10,7 @@ Pass a list of string and get a result list of all the duplicates grouped togeth
 
 ```python
     >>> from txtdedup import groupdups
-    >>> groupdups.get_duplicates(text_list, pp_technique='stem', similarity_ratio=70) where
+    >>> groupdups(strings_to_group=[], pp_technique='stem', similarity_ratio=70) where
     * text_list = List of strings to be compares
     * pp_technique = Pre-processing technique which can be either 'stem' or 'lemmatize' defaults to 'stem'
     * similarity_ratio = Defaults to 70
@@ -26,7 +26,7 @@ Pass a list of string and get a result list of all the duplicates grouped togeth
             "Microsoft Bets Its Future on a Reprogrammable Computer Chip",
             "Samsung halts sales of Galaxy Note 7 after new troubles"]
             
-    >>> groupdups.get_duplicates(titles, pp_technique='stem', similarity_ratio=70)
+    >>> groupdups(strings_to_group=titles, pp_technique='stem', similarity_ratio=70)
         [   [   "Snapchat changes name to Snap Inc., debuts 'Spectacles'",
                 "Snapchat debuts recording 'Spectacles,' changes company name'"],
             [   'Samsung delays restart of its Galaxy Note 7 sale',

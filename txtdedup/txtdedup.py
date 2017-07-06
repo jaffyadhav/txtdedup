@@ -15,15 +15,16 @@ stemmer = SnowballStemmer("english")
 # LEMMATIZATION
 lemmatizer = WordNetLemmatizer()
 
-def get_processed_text(text, pp_technique):
+
+def _get_processed_text(text, pp_technique):
     if pp_technique == 'lemmatize':
         return [lemmatizer.lemmatize(w).lower() for w in word_tokenize(text) if w not in stop_words]
     else:
         return [stemmer.stem(w) for w in word_tokenize(text) if w not in stop_words]
 
 
-def get_duplicates(given_list, pp_technique='stem', similarity_ratio=70):
-    processed_list = list(map(lambda i: get_processed_text(i, pp_technique), given_list))
+def groupdups(given_list, pp_technique='stem', similarity_ratio=70):
+    processed_list = list(map(lambda i: _get_processed_text(i, pp_technique), given_list))
     processed_indices = []
     result_list = []
     for i, text1 in enumerate(processed_list):
